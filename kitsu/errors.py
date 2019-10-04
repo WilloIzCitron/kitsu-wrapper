@@ -2,7 +2,7 @@ class KitsuError(Exception):
     pass
 
 
-class InvalidType(KitsuError):
+class InvalidArgument(KitsuError):
     pass
 
 

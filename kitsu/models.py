@@ -1,13 +1,36 @@
 from datetime import datetime
 
 
+class Category:
+    def __init__(self, type_, data):
+        attributes = data['attributes']
+
+        self.id = data['id']
+        self.type = type_
+        self.title = attributes['title']
+        self.description = attributes['description']
+        self.slug = attributes['slug']
+        self.nsfw = attributes['nsfw']
+        self.media_count = attributes['totalMediaCount']
+        self.child_count = attributes['childCount']
+        self.image_url = attributes['image']['original'] \
+            if attributes['image'] else None
+
+    @property
+    def url(self):
+        return f'https://kitsu.io/explore/{self.type}/category/{self.slug}'
+
+    def __str__(self):
+        return self.title
+
+
 class MediaEntry:
     def __init__(self, id_, type_, attributes):
         self.id = id_
         self.type = type_
         self.title = attributes['canonicalTitle']
         self.synopsis = attributes['synopsis']
-        self.sub_type = attributes['subtype']
+        self.subtype = attributes['subtype']
         self.status = attributes['status']
         self.slug = attributes['slug']
         self.rating = attributes['averageRating']
