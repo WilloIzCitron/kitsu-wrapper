@@ -1,4 +1,28 @@
+import re
 from datetime import datetime
+
+DOMAIN_NAME = re.compile('^(?:http|https)://(?:[a-zA-Z0-9]{1,63}\.)*([a-zA-Z0-9]{1,63})\.(?:[a-zA-Z0-9]{1,63})/')
+CUSTOM_STREAMERS_NAMES = {
+    "hidive": "HIDIVE",
+    "tubitv": "TubiTV",
+    "youtube": "YouTube"
+}
+
+
+class StreamingLink:
+    def __init__(self, data):
+        attributes = data['attributes']
+
+        self.id = data['id']
+        self.url = attributes['url']
+        self.subs = attributes['subs']
+        self.dubs = attributes['dubs']
+
+        domain_name = DOMAIN_NAME.match(attributes['url']).group(1)
+        self.title = CUSTOM_STREAMERS_NAMES.get(domain_name, domain_name.title())
+
+    def __str__(self):
+        return self.title
 
 
 class Category:
