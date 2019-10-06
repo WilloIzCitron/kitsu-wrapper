@@ -57,7 +57,7 @@ class MediaEntry:
         self.subtype = attributes['subtype']
         self.status = attributes['status']
         self.slug = attributes['slug']
-        self.rating = attributes['averageRating']
+        self.average_rating = attributes['averageRating']
         self.user_count = attributes['userCount']
         self.favorites_count = attributes['favoritesCount']
         self.popularity_rank = attributes['popularityRank']
