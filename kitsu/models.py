@@ -1,7 +1,7 @@
 import re
 from datetime import datetime
 
-DOMAIN_NAME = re.compile('^(?:http|https)://(?:[a-zA-Z0-9]{1,63}\.)*([a-zA-Z0-9]{1,63})\.(?:[a-zA-Z0-9]{1,63})/')
+DOMAIN_NAME = re.compile('^(?:https?://)?(?:[a-zA-Z0-9]{1,63}\.)*([a-zA-Z0-9]{1,63})\.(?:[a-zA-Z0-9]{1,63})/')
 CUSTOM_STREAMERS_NAMES = {
     "hidive": "HIDIVE",
     "tubitv": "TubiTV",
