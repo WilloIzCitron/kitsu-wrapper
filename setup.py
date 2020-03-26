@@ -1,10 +1,12 @@
 from setuptools import setup
 
+import kitsu
+
 setup(
     name='kitsu-wrapper',
     author='Naegin',
     url='https://github.com/DiscoMusic/kitsu-wrapper',
-    version='0.1.2',
+    version=kitsu.__version__,
     packages=['kitsu'],
     install_requires=['aiohttp'],
     description='A simple wrapper for the Kitsu.io API.',
