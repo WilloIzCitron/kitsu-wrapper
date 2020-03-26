@@ -4,6 +4,6 @@ __title__ = 'kitsu-wrapper'
 __author__ = 'Naegin'
 __license__ = 'MIT'
 __copyright__ = 'Copyright (c) 2019-2020 Naegin'
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 
 from .client import Client
