@@ -54,5 +54,11 @@ class Client:
                     raise ResponseError(code=resp.status, reason=resp.reason)
 
                 json = await resp.json()
+                streaming_links = []
 
-                return [StreamingLink(data) for data in json['data']]
+                for data in json['data']:
+                    match = DOMAIN_NAME.match(data['attributes']['url'])
+                    if match:
+                        streaming_links.append(StreamingLink(data, match))
+
+                return streaming_links

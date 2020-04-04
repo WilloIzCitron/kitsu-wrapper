@@ -12,7 +12,7 @@ CUSTOM_STREAMERS_NAMES = {
 class StreamingLink:
     __slots__ = ('id', 'url', 'subs', 'dubs', 'title')
 
-    def __init__(self, data: dict):
+    def __init__(self, data: dict, match: re.Match):
         attributes = data['attributes']
 
         self.id = data['id']
@@ -20,7 +20,7 @@ class StreamingLink:
         self.subs = attributes['subs']
         self.dubs = attributes['dubs']
 
-        domain_name = DOMAIN_NAME.match(attributes['url']).group(1)
+        domain_name = match.group(1)
         self.title = CUSTOM_STREAMERS_NAMES.get(domain_name, domain_name.title())
 
     def __str__(self):
