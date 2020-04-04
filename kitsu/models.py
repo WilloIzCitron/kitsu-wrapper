@@ -1,6 +1,9 @@
 import re
 from datetime import datetime
 
+
+__all__ = ('DOMAIN_NAME', 'StreamingLink', 'Category', 'MediaEntry', 'Anime', 'Manga')
+
 DOMAIN_NAME = re.compile('^(?:https?://)?(?:[a-zA-Z0-9]{1,63}\.)*([a-zA-Z0-9]{1,63})\.(?:[a-zA-Z0-9]{1,63})/')
 CUSTOM_STREAMERS_NAMES = {
     "hidive": "HIDIVE",
