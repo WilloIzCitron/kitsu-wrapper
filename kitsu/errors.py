@@ -7,6 +7,8 @@ class InvalidArgument(KitsuError):
 
 
 class ResponseError(KitsuError):
+    __slots__ = ('code', 'reason')
+
     def __init__(self, *, code, reason):
         self.code = code
         self.reason = reason

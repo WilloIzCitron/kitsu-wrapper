@@ -10,6 +10,8 @@ CUSTOM_STREAMERS_NAMES = {
 
 
 class StreamingLink:
+    __slots__ = ('id', 'url', 'subs', 'dubs', 'title')
+
     def __init__(self, data: dict):
         attributes = data['attributes']
 
@@ -26,6 +28,8 @@ class StreamingLink:
 
 
 class Category:
+    __slots__ = ('id', 'type', 'title', 'description', 'slug', 'nsfw', 'media_count', 'child_count', 'image_url')
+
     def __init__(self, type_, data: dict):
         attributes = data['attributes']
 
@@ -49,6 +53,10 @@ class Category:
 
 
 class MediaEntry:
+    __slots__ = ('id', 'type', 'title', 'synopsis', 'subtype', 'status', 'slug', 'average_rating', 'user_count',
+                 'favorites_count', 'popularity_rank', 'rating_rank', 'age_rating', 'age_rating_guide',
+                 'poster_image_url', 'cover_image_url', 'started_at', 'ended_at', 'next_release')
+
     def __init__(self, id_: str, type_: str, attributes: dict):
         self.id = id_
         self.type = type_
@@ -84,6 +92,11 @@ class MediaEntry:
 
 
 class Anime(MediaEntry):
+    __slots__ = ('id', 'type', 'title', 'synopsis', 'subtype', 'status', 'slug', 'average_rating', 'user_count',
+                 'favorites_count', 'popularity_rank', 'rating_rank', 'age_rating', 'age_rating_guide',
+                 'poster_image_url', 'cover_image_url', 'started_at', 'ended_at', 'next_release',
+                 'episode_count', 'episode_length', 'total_length', 'youtube_video_id', 'nsfw')
+
     def __init__(self, type_: str, data: dict):
         attributes = data['attributes']
 
@@ -97,6 +110,11 @@ class Anime(MediaEntry):
 
 
 class Manga(MediaEntry):
+    __slots__ = ('id', 'type', 'title', 'synopsis', 'subtype', 'status', 'slug', 'average_rating', 'user_count',
+                 'favorites_count', 'popularity_rank', 'rating_rank', 'age_rating', 'age_rating_guide',
+                 'poster_image_url', 'cover_image_url', 'started_at', 'ended_at', 'next_release',
+                 'chapter_count', 'volume_count', 'serialization')
+
     def __init__(self, type_: str, data: dict):
         attributes = data['attributes']
 
