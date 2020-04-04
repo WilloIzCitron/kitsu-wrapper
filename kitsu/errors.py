@@ -12,3 +12,4 @@ class ResponseError(KitsuError):
     def __init__(self, *, code, reason):
         self.code = code
         self.reason = reason
+        self.args = (f'Received HTTP code {code} ({reason})',)
