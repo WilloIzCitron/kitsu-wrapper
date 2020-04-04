@@ -10,7 +10,7 @@ CUSTOM_STREAMERS_NAMES = {
 
 
 class StreamingLink:
-    def __init__(self, data):
+    def __init__(self, data: dict):
         attributes = data['attributes']
 
         self.id = data['id']
@@ -26,7 +26,7 @@ class StreamingLink:
 
 
 class Category:
-    def __init__(self, type_, data):
+    def __init__(self, type_, data: dict):
         attributes = data['attributes']
 
         self.id = data['id']
@@ -41,7 +41,7 @@ class Category:
             if attributes['image'] else None
 
     @property
-    def url(self):
+    def url(self) -> str:
         return f'https://kitsu.io/explore/{self.type}/category/{self.slug}'
 
     def __str__(self):
@@ -49,7 +49,7 @@ class Category:
 
 
 class MediaEntry:
-    def __init__(self, id_, type_, attributes):
+    def __init__(self, id_: str, type_: str, attributes: dict):
         self.id = id_
         self.type = type_
         self.title = attributes['canonicalTitle']
@@ -76,7 +76,7 @@ class MediaEntry:
             if attributes['nextRelease'] else None
 
     @property
-    def url(self):
+    def url(self) -> str:
         return f'https://kitsu.io/{self.type}/{self.slug}'
 
     def __str__(self):
@@ -84,7 +84,7 @@ class MediaEntry:
 
 
 class Anime(MediaEntry):
-    def __init__(self, type_, data):
+    def __init__(self, type_: str, data: dict):
         attributes = data['attributes']
 
         super().__init__(data['id'], type_, attributes)
@@ -97,7 +97,7 @@ class Anime(MediaEntry):
 
 
 class Manga(MediaEntry):
-    def __init__(self, type_, data):
+    def __init__(self, type_: str, data: dict):
         attributes = data['attributes']
 
         super().__init__(data['id'], type_, attributes)

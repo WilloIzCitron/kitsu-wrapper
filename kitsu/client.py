@@ -1,3 +1,5 @@
+from typing import *
+
 import aiohttp
 
 from .errors import *
@@ -13,7 +15,7 @@ class Client:
             "Content-Type": "application/vnd.api+json"
         }
 
-    async def search(self, type_: str, query: str, limit: int = 10):
+    async def search(self, type_: str, query: str, limit: int = 10) -> List[Union[Anime, Manga]]:
         media = self._media.get(type_)
         if media is None:
             raise InvalidArgument('You gave me an invalid media type! Supported media types: '
@@ -28,7 +30,7 @@ class Client:
 
                 return [media(type_, data) for data in json['data']]
 
-    async def fetch_media_categories(self, media):
+    async def fetch_media_categories(self, media: Union[Anime, Manga]) -> List[Category]:
         if not isinstance(media, MediaEntry):
             raise InvalidArgument('You gave me an invalid media object! Supported media object types: '
                                   + ', '.join(c.__name__ for c in self._media.values()))
@@ -42,7 +44,7 @@ class Client:
 
                 return [Category(media.type, data) for data in json['data']]
 
-    async def fetch_anime_streaming_links(self, anime):
+    async def fetch_anime_streaming_links(self, anime: Anime) -> List[StreamingLink]:
         if not isinstance(anime, Anime):
             raise InvalidArgument('You gave me an invalid anime object!')
 
