@@ -22,7 +22,7 @@ class Client:
         async with aiohttp.ClientSession(headers=self.__headers) as session:
             async with session.get(self._base_url + f'/{type_}?filter[text]={query}&page[limit]={limit}') as resp:
                 if resp.status != 200:
-                    raise ResponseError(f'Response returned with code {resp.status}')
+                    raise ResponseError(code=resp.status, reason=resp.reason)
 
                 json = await resp.json()
 
@@ -36,7 +36,7 @@ class Client:
         async with aiohttp.ClientSession(headers=self.__headers) as session:
             async with session.get(self._base_url + f'/{media.type}/{media.id}/categories') as resp:
                 if resp.status != 200:
-                    raise ResponseError(f'Response returned with code {resp.status}')
+                    raise ResponseError(code=resp.status, reason=resp.reason)
 
                 json = await resp.json()
 
@@ -49,7 +49,7 @@ class Client:
         async with aiohttp.ClientSession(headers=self.__headers) as session:
             async with session.get(self._base_url + f'/anime/{anime.id}/streaming-links') as resp:
                 if resp.status != 200:
-                    raise ResponseError(f'Response returned with code {resp.status}')
+                    raise ResponseError(code=resp.status, reason=resp.reason)
 
                 json = await resp.json()
 
