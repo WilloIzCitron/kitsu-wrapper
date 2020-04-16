@@ -1,7 +1,7 @@
 |Disco|
 -------
 
-|Discord| |License| |Twitter|
+|Discord| |Python Version| |PyPi version| |PyPi Downloads| |License| |Twitter|
 
 kitsu-wrapper
 =============
@@ -98,10 +98,14 @@ Example
    loop.run_until_complete(manga_search(input('Insert a manga name: ')))
 
 
-.. |Disco| image:: https://i.imgur.com/DWa6iY0.png
-   :target: https://is.gd/disco_github
 .. |Discord| image:: https://img.shields.io/discord/516346444463210542?label=chat&logo=discord
    :target: https://discord.gg/qN5886E
+.. |Python Version| image:: https://img.shields.io/pypi/pyversions/kitsu-wrapper
+   :target: https://pypi.org/project/kitsu-wrapper
+.. |PyPi version| image:: https://img.shields.io/pypi/v/kitsu-wrapper
+   :target: https://pypi.org/project/kitsu-wrapper
+.. |PyPi Downloads| image:: https://img.shields.io/pypi/dm/kitsu-wrapper
+   :target: https://pypi.org/project/kitsu-wrapper
 .. |License| image:: https://img.shields.io/github/license/DiscoMusic/kitsu-wrapper
    :target: https://github.com/DiscoMusic/kitsu-wrapper/tree/master/LICENSE
 .. |Twitter| image:: https://img.shields.io/twitter/follow/DiscoTheBot

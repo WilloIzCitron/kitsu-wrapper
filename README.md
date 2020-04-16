@@ -1,6 +1,6 @@
 [![Disco](https://i.imgur.com/DWa6iY0.png)][bot-invite-url]
 ---
-[![Discord][discord-badge]][discord-url] [![License][license-badge]][license-url] [![Twitter][twitter-badge]][twitter-url]
+[![Discord][discord-badge]][discord-url] [![Python Version][pypi-python-version-badge]][pypi-url] [![PyPi version][pypi-version-badge]][pypi-url] [![PyPi Downloads][pypi-downloads]][pypi-url] [![License][license-badge]][license-url] [![Twitter][twitter-badge]][twitter-url]
 # kitsu-wrapper
 
 A simple python async wrapper for the Kitsu.io API.
@@ -92,9 +92,14 @@ loop.run_until_complete(manga_search(input('Insert a manga name: ')))
 ```
 
 [bot-invite-url]: https://is.gd/disco_github
+[pypi-url]: https://pypi.org/project/kitsu-wrapper
 
 [discord-badge]: https://img.shields.io/discord/516346444463210542?label=chat&logo=discord
 [discord-url]: https://discord.gg/qN5886E
+
+[pypi-python-version-badge]: https://img.shields.io/pypi/pyversions/kitsu-wrapper
+[pypi-version-badge]: https://img.shields.io/pypi/v/kitsu-wrapper
+[pypi-downloads]: https://img.shields.io/pypi/dm/kitsu-wrapper
 
 [license-badge]: https://img.shields.io/github/license/DiscoMusic/kitsu-wrapper
 [license-url]: https://github.com/DiscoMusic/kitsu-wrapper/tree/master/LICENSE
